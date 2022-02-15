@@ -15,7 +15,7 @@ Build in Docker and play in web browser.
 ## Instructions
 
 ```
-git clone https://github.com/sudocraft/docker-game-doom2.git
+git clone https://github.com/antyung88/docker-game-doom2.git
 ```
 
 ```
