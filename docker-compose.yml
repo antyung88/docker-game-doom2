@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   doom:
-    image: dev852com/doom2:latest
+    image: ghcr.io/antyung88/doom2:master
     restart: always
     ports: 
       - "8000:8000"
