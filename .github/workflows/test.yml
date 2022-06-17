@@ -1,4 +1,4 @@
-name: Release Github Packages
+name: Test Github Packages
 
 on:
   pull_request:
