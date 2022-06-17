@@ -48,7 +48,7 @@ jobs:
       - name: Check Out Repo 
         uses: actions/checkout@v3
       - name: Try to run (github.com)
-        run: docker-compose -f docker-compose-test.yml up -d
+        run: docker run -d -p 8000:8000 ghcr.io/${{ secrets.USER }}/${{ secrets.IMAGE }}:test
       - name: Install curl
         run: |
           sudo apt install curl -y
