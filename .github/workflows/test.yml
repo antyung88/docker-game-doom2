@@ -55,4 +55,4 @@ jobs:
       - name: Should exit with code 1
         run: |
           sleep 12
-          curl --fail http://localhost:3000 || exit 1
+          curl --fail http://localhost:8000 || exit 1
