@@ -55,5 +55,4 @@ jobs:
       - name: Should exit with code 1
         run: |
           sleep 12
-          curl localhost:8000 --fail || ec=$?
-          test $ec -eq 1 && echo "all is ok (code = $ec)" || ( echo "Wrong exit code: $ec"; exit 1 )
+          curl --fail http://localhost:3000 || exit 1
