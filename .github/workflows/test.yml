@@ -52,9 +52,8 @@ jobs:
       - name: Install curl
         run: |
           sudo apt install curl -y
-          sleep 10
-          curl localhost:8000 --fail
       - name: Should exit with code 1
         run: |
-          docker run --rm curl:local --fail || ec=$?
+          sleep 12
+          curl localhost:8000 --fail || ec=$?
           test $ec -eq 1 && echo "all is ok (code = $ec)" || ( echo "Wrong exit code: $ec"; exit 1 )
