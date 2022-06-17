@@ -1,4 +1,4 @@
-# docker-game-doom2
+# docker-game-doom2 [![Release Github Packages](https://github.com/antyung88/docker-game-doom2/actions/workflows/release.yml/badge.svg)](https://github.com/antyung88/docker-game-doom2/actions/workflows/release.yml)
 
 Doom II, also known as Doom II: Hell on Earth, is a first-person shooter game by id Software for MS-DOS.<br/>
 Build in Docker and play in web browser.
