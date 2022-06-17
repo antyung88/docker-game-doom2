@@ -46,6 +46,8 @@ jobs:
         working-directory: .artifact
         run: docker load < docker-image.tar
 
+      - name: Check Out Repo 
+        uses: actions/checkout@v2
       - name: Try to run (github.com)
         run: docker-compose up
 
