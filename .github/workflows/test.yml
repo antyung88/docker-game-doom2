@@ -23,3 +23,38 @@ jobs:
           images: ghcr.io/${{ secrets.USER }}/${{ secrets.IMAGE }}
       - run: |
           docker build . -t ghcr.io/${{ secrets.USER }}/${{ secrets.IMAGE }}:test
+          docker save ghcr.io/${{ secrets.USER }}/${{ secrets.IMAGE }}:test > ./docker-image.tar
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: docker-image
+          path: ./docker-image.tar
+          retention-days: 1
+
+  test:
+    name: Use docker image
+    runs-on: ubuntu-20.04
+    needs: [build]
+    steps:
+      - name: Download built docker image
+        uses: actions/download-artifact@v3
+        with:
+          name: docker-image
+          path: .artifact
+
+      - name: Prepare image to run
+        working-directory: .artifact
+        run: docker load < docker-image.tar
+
+      - name: Try to run (github.com)
+        run: docker-compose up
+
+      - name: Install curl
+        run: |
+          apt install curl -y
+          curl localhost:8000 --fail
+
+      - name: Should exit with code 1
+        run: |
+          docker run --rm curl:local --fail || ec=$?
+          test $ec -eq 1 && echo "all is ok (code = $ec)" || ( echo "Wrong exit code: $ec"; exit 1 )
