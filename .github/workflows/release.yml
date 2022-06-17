@@ -1,4 +1,4 @@
-name: Github Packages CI
+name: Release Github Packages
 
 on:
   push:
