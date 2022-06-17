@@ -16,4 +16,4 @@ jobs:
         with:
           images: ghcr.io/${{ github.actor }}/${{ secrets.image }}
       - run: |
-          docker build -t ghcr.io/${{ github.actor}}/${{ secrets.image }}:test .
+          docker build . -t ghcr.io/${{ github.actor}}/${{ secrets.image }}:test
