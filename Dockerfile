@@ -1,4 +1,4 @@
-FROM node:18.4.0
+FROM node:18.7.0
 
 WORKDIR site
 RUN wget --no-check-certificate https://js-dos.com/6.22/current/js-dos.js
